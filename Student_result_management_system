@@ -1,0 +1,26 @@
+students = {}
+n = int(input("Enter the number of students: "))
+for i in range(n):
+    name = input("Enter student name: ")
+    marks = float(input("Enter marks: "))
+    students[name] = marks
+print("Student Results")
+for name, marks in students.items():
+    print(name, ":", marks)
+average = sum(students.values()) / len(students)
+print("Average Marks:", average)
+topper = max(students, key=students.get)
+print("Topper:", topper)
+print("Top Marks:", students[topper])
+grades = [
+    (name,
+     "A" if marks >= 90 else
+     "B" if marks >= 75 else
+     "C" if marks >= 60 else
+     "D" if marks >= 40 else
+     "F")
+    for name, marks in students.items()
+]
+print("Grades")
+for name, grade in grades:
+    print(name, ":", grade)
